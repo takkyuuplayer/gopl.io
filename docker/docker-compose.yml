@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    container_name: gopl.io
+    image: library/golang:1.8
+    volumes:
+      - ../:/srv/
+    environment:
+      - TZ=Asia/Tokyo
+    ports:
+      - 8000:8000
+    tty: true
+    command: bash
+    working_dir: /srv
