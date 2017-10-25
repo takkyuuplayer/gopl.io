@@ -41,3 +41,15 @@ func PopCountByShift(x uint64) int {
 
 	return int(ret)
 }
+
+// ex 2.5
+func PopCountByAndOperator(x uint64) int {
+	ret := 0
+
+	for x > 0 {
+		x = x & (x - 1)
+		ret++
+	}
+
+	return ret
+}

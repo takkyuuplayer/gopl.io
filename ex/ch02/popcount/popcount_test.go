@@ -57,3 +57,22 @@ func TestPopCountByShift(t *testing.T) {
 	}
 
 }
+
+func TestPopCountByAndOperator(t *testing.T) {
+	if PopCountByAndOperator(0) != 0 { // 0
+		t.Errorf(`PopCountByAndOperator(0) = %#v, want %#v`, PopCountByAndOperator(0), 0)
+	}
+
+	if PopCountByAndOperator(1) != 1 { // 1
+		t.Errorf(`PopCountByAndOperator(10) = %#v, want %#v`, PopCountByAndOperator(1), 2)
+	}
+
+	if PopCountByAndOperator(10) != 2 { // 1010
+		t.Errorf(`PopCountByAndOperator(10) = %#v, want %#v`, PopCountByAndOperator(10), 2)
+	}
+
+	if PopCountByAndOperator(100) != 3 { // 11010
+		t.Errorf(`PopCountByAndOperator(10) = %#v, want %#v`, PopCountByAndOperator(100), 3)
+	}
+
+}
