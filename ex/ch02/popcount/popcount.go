@@ -24,8 +24,19 @@ func PopCount(x uint64) int {
 func PopCountByLoop(x uint64) int {
 	ret := pc[byte(x>>(0*8))]
 
-	for i := 1; i < 8; i++ {
-		ret += pc[byte(x>>(uint64(i)*8))]
+	for i := uint64(1); i < 8; i++ {
+		ret += pc[byte(x>>(i*8))]
+	}
+
+	return int(ret)
+}
+
+// ex 2.4
+func PopCountByShift(x uint64) int {
+	ret := uint64(0)
+
+	for i := uint64(0); i < 64; i++ {
+		ret += (x >> i) & 1
 	}
 
 	return int(ret)

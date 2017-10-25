@@ -37,5 +37,23 @@ func TestPopCountByLoop(t *testing.T) {
 	if PopCountByLoop(100) != 3 { // 11010
 		t.Errorf(`PopCountByLoop(10) = %#v, want %#v`, PopCountByLoop(100), 3)
 	}
+}
+
+func TestPopCountByShift(t *testing.T) {
+	if PopCountByShift(0) != 0 { // 0
+		t.Errorf(`PopCountByShift(0) = %#v, want %#v`, PopCountByShift(0), 0)
+	}
+
+	if PopCountByShift(1) != 1 { // 1
+		t.Errorf(`PopCountByShift(10) = %#v, want %#v`, PopCountByShift(1), 2)
+	}
+
+	if PopCountByShift(10) != 2 { // 1010
+		t.Errorf(`PopCountByShift(10) = %#v, want %#v`, PopCountByShift(10), 2)
+	}
+
+	if PopCountByShift(100) != 3 { // 11010
+		t.Errorf(`PopCountByShift(10) = %#v, want %#v`, PopCountByShift(100), 3)
+	}
 
 }
