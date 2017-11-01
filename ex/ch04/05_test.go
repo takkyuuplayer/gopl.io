@@ -1,11 +1,11 @@
-package main
+package ch04
 
 import (
 	"reflect"
 	"testing"
 )
 
-func uniq(src []string) []string {
+func uniq05(src []string) []string {
 	idx := 0
 	for _, s := range src {
 		if src[idx] == s {
@@ -21,7 +21,7 @@ func uniq(src []string) []string {
 func TestUniq(t *testing.T) {
 	src := []string{"", "a", "b", "b", "c", "c", "c", "b"}
 
-	ret := uniq(src)
+	ret := uniq05(src)
 
 	// in-place
 	if !reflect.DeepEqual(src, []string{"", "a", "b", "c", "b", "c", "c", "b"}) {

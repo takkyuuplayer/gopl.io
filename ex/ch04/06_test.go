@@ -1,4 +1,4 @@
-package main
+package ch04
 
 import (
 	"reflect"
@@ -7,7 +7,7 @@ import (
 	"unicode/utf8"
 )
 
-func squash(org []byte) []byte {
+func squash06(org []byte) []byte {
 	s := string(org)
 
 	idx := 0
@@ -27,7 +27,7 @@ func squash(org []byte) []byte {
 
 func TestSquashForAscii(t *testing.T) {
 	a := []byte("a\nb\tc d")
-	b := squash(a)
+	b := squash06(a)
 
 	if string(a) != "a b c d" {
 		t.Errorf(`a = %#v, want %#v`, string(a), "a b c d")
@@ -40,7 +40,7 @@ func TestSquashForAscii(t *testing.T) {
 
 func TestSquashForUTF8(t *testing.T) {
 	a := []byte("Hello　世界!")
-	b := squash(a)
+	b := squash06(a)
 
 	if reflect.DeepEqual(a, b) {
 		t.Errorf(`a = %#v, does NOT want %#v`, a, b)
