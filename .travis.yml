@@ -2,5 +2,7 @@ language: go
 go:
     - 1.x
     - master
+before_install:
+  - make
 script:
   - make test
