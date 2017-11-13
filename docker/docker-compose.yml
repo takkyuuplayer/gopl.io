@@ -5,6 +5,7 @@ services:
     image: library/golang:1.8
     volumes:
       - ../:/srv/
+      - ~/go:/go
     environment:
       - TZ=Asia/Tokyo
     ports:
